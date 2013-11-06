@@ -1,0 +1,76 @@
+@charset "utf-8";
+/*	Global CSS - created by Visionary Services
+	www.visionary.com	*/
+
+body {margin:0; padding:0; font-family: 'Oswald', sans-serif; font-size:12px; color:#444d3e; background-color:#fff;}
+img {border:0;}
+a {color:#5c5c5c;}
+a:hover {color:#6fcee5; cursor:pointer;}
+.error {font-weight:bold; margin:0 0 15px 0; color:#b63942; padding-top:0; padding-left:17px;}
+
+h1, h2, h3 {margin:10px 0; padding:0; color:#444d3e; font-weight:normal;}
+h1 {font-size:20px; color:#e31b23;}
+h2 {font-size:36px;}
+h3 {font-size:14px;}
+
+sup {font-size:70%; vertical-align:super; font-weight:bold;}
+sub {font-size:70%; vertical-align:sub; font-weight:bold;}
+div {position:relative; margin:0; padding:0;}
+form label.req {padding-right:16px; background:url(/images/admin/label-req.png) no-repeat 100% 50%;}
+
+/* Category Viewer -----------------------------*/
+span.viewer, div.viewer {margin-right:25px; color:#5c5c5c; cursor:pointer; text-decoration:underline;}
+span.viewer:hover , div.viewer:hover {color:#0080c5; cursor:pointer; text-decoration:none;}
+span.active , div.active{font-weight:bold; color:#000; text-decoration:none;}
+hr {height:1px; border:0; background-color:#ccc; width:100%;}
+
+.page {width:1000px; margin:0 auto; position:relative;}
+
+/* Header --------------------------------------*/
+.head {width:1000px; height:150px; z-index:10; margin:3px 0 0 0; overflow:visible;}
+.head .logo {width:210px; height:133px; display:block; position:absolute; top:10px; left:15px; text-indent:-9000px; background-image:url(/images/head/logo.png); background-repeat:no-repeat;}
+.head ul.menu {width:750px; height:40px; margin:0; padding:0; list-style:none; position:absolute; top:125px; left:260px; z-index:200;}
+.head ul.menu li {display:block; float:left; position:relative; z-index:200;}
+.head ul.menu li a {height:45px; padding:0 15px 0 20px; display:block; float:left; margin:0; font-size:18px; line-height:44px; text-decoration:none; text-transform:uppercase; color:#5c5c5c; z-index:200;}
+.head ul.menu li a:hover {color:#6fcee5;}
+.head li .sub, .head li .subsub {width:180px; height:auto; position:absolute; top:40px; left:20px; z-index:200; background:url(/images/head/menu-bg.png) repeat; display:none; list-style:none; margin:0; padding:0;}
+.head li:hover .sub, .head .subiehover {display:block;}
+.head li .sub li, .head li .subsub li {width:180px; padding:0;}
+.head li .sub li a, .head li:hover .sub li a, .head li .subsub li a, .head li .sub li:hover .subsub li a {display:block; color:#fff; width:162px; height:auto; line-height:16px; font-size:14px; padding:4px 9px; margin-top:0; text-transform:none;}
+.head li .sub li a:hover, .head li .subsub li a:hover {background:url(/images/head/menu-bg.png) repeat; color:#6fcee5;}
+.head li .subsub {top:0; left:180px;}
+.head li .sub li:hover .subsub {display:block;}
+.head .sm .bar {background-image:url(/images/head/sm-bar.png); display:block; height:24px; position:absolute; right:25px; top:5px; width:141px; z-index:20;}
+.head .sm .twitter {background:url(/images/head/twitter.png) bottom; display:block; height:21px; position:absolute; right:40px; text-indent: -9999px; top:16px; width:30px;}
+.head .sm .twitter:hover {background-position: top; height:29px;}
+.head .sm .facebook {background:url(/images/head/facebook.png) bottom; display:block; height:21px; position:absolute; right:80px; text-indent: -9999px; top:16px; width:30px;}
+.head .sm .facebook:hover {background-position: top; height:29px;}
+.head .sm .pinterest {background:url(/images/head/pinterest.png) bottom; display:block; height:21px; position:absolute; right:120px; text-indent: -9999px; top:16px; width:30px;}
+.head .sm .pinterest:hover {background-position: top; height:29px;}
+
+
+
+
+/* Body / Contents -----------------------------*/
+.body {width:1000px; position:relative; overflow:hidden; margin:0; padding:0;}
+.body .full {width:970px; float:left; min-height:400px; margin-top:10px; padding:5px 15px;}
+.body .left {position:relative; width:650px; float:left;}
+.body .right {width:300px; float:left; position:relative; margin:0; padding:0;}
+
+
+/* Footer --------------------------------------*/
+.foot {width:960px; font-size:10px; line-height:12px; overflow:hidden; margin-left:14px;}
+.foot ul {width:870px; height:20px; margin:0; padding:0; float:left; clear:left; list-style:none;}
+.foot ul li {float:left; margin-left:8px; padding-left:8px; background:url(/images/foot/menu-sep.png) no-repeat 0 50%;}
+.foot ul li:first-child {background:none; margin-left:0; padding-left:0;}
+.foot ul li a {text-decoration:none;}
+.foot ul li ul {display:none;}
+.foot .address {width:580px; height:12px; float:left; clear:left;}
+.foot .legal {width:650px; height:40px; float:left; clear:both; line-height:15px;}
+.sponsor {width:970px; margin-bottom:10px; overflow:hidden}
+.sponsor .sponsor5 {width:100px; height:75px; display:block; float:right; background:url(/images/foot/sponsor-placeholder100x75.png) no-repeat; text-indent:-9000px;}
+.sponsor .sponsor4 {width:100px; height:75px; display:block; float:right; background:url(/images/foot/sponsor-placeholder100x75.png) no-repeat; text-indent:-9000px;}
+.sponsor .sponsor3 {width:100px; height:75px; display:block; float:right; background:url(/images/foot/sponsor-placeholder100x75.png) no-repeat; text-indent:-9000px;}
+.sponsor .sponsor2 {width:100px; height:75px; display:block; float:right; background:url(/images/foot/bravo-logo.png) no-repeat; text-indent:-9000px;}
+.sponsor .sponsor1 {width:100px; height:75px; display:block; float:right; background:url(/images/foot/iac-logo.png) no-repeat; text-indent:-9000px;}
+.sponsor .vsi {width:120px; height:30px; display:block; float:right; margin:15px 15px 0 10px; background:url(https://static.visionary.com/siteoncall/siteoncall-footer.png) no-repeat; text-indent:-9000px;}

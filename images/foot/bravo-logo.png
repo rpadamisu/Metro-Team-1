@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0044)http://www.metroarts.org/education-outreach/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Site OnCall Version 2.9.0 -->
+<link href="./bravo-logo_files/css" rel="stylesheet" type="text/css">
+
+<meta http-equiv="content-language" content="en">
+<link rel="icon" href="http://www.metroarts.org/images/favicon.png" type="image/png">
+<link rel="shortcut icon" href="http://www.metroarts.org/images/favicon.png" type="image/png">
+<title>Education - Metro Arts Alliance</title>
+<link rel="stylesheet" type="text/css" href="./bravo-logo_files/global.css">
+
+
+<script type="text/javascript" async="" src="./bravo-logo_files/ga.js"></script><script language="javascript" type="text/javascript" src="./bravo-logo_files/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="./bravo-logo_files/standard.js"></script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34803508-34']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+<div class="page">
+
+<div class="head">
+	<a class="logo" href="http://www.metroarts.org/" title="Metro Arts Alliance"></a>
+	<div class="sm">
+		<a class="twitter" href="https://twitter.com/MetroArts" title="Metro Arts Alliance Twitter" target="_blank">Twitter</a>
+		<a class="facebook" href="https://www.facebook.com/metroartsalliance?ref=ts&fref=ts" title="Metro Arts Alliance Facebook" target="_blank">Facebook</a>
+		<a class="pinterest" href="http://pinterest.com/metroarts/" title="Metro Arts Alliance Pinterest" target="_blank">Pinterest</a>
+		<div class="bar"></div>
+	</div>
+ 	 <ul id="top-menu" class="menu">
+ 	  <li id="top-menu-122" class="main-menu-first"><a href="http://www.metroarts.org/about-us/" title="About Us">About Us</a>					
+		   <ul class="sub">
+	 				  <li id="top-menu-130" class="sub-menu-first"><a href="http://www.metroarts.org/about-us/mission/" title="Mission">Mission</a></li>
+					  <li id="top-menu-131"><a href="http://www.metroarts.org/about-us/history/" title="History">History</a></li>
+					  <li id="top-menu-109"><a href="http://www.metroarts.org/staff/" title="Board/Staff">Board/Staff</a></li>
+					  <li id="top-menu-132" class="sub-menu-last"><a href="http://www.metroarts.org/about-us/contact-us/" title="Contact Us">Contact Us</a></li>
+		   </ul>
+	   </li>
+	  <li id="top-menu-123"><a href="http://www.metroarts.org/members/" title="Membership">Membership</a>					
+		   <ul class="sub">
+	 				  <li id="top-menu-127" class="sub-menu-first"><a href="http://www.metroarts.org/members/join/" title="Membership Application">Membership Application</a></li>
+					  <li id="top-menu-133"><a href="http://www.metroarts.org/members/benefits/" title="Benefits">Benefits</a></li>
+					  <li id="top-menu-126" class="sub-menu-last"><a href="http://www.metroarts.org/members/donate/" title="Donate">Donate</a></li>
+		   </ul>
+	   </li>
+	  <li id="top-menu-134"><a href="http://www.metroarts.org/supporters/" title="Supporters">Supporters</a>					
+		   <ul class="sub">
+	 				  <li id="top-menu-138" class="sub-menu-first"><a href="http://www.metroarts.org/supporters/donors-list/" title="Donors List">Donors List</a></li>
+					  <li id="top-menu-139" class="sub-menu-last"><a href="http://www.metroarts.org/supporters/sponsors-list/" title="Sponsors List">Sponsors List</a></li>
+		   </ul>
+	   </li>
+	  <li id="top-menu-135"><a href="http://www.metroarts.org/programs/" title="Programs">Programs</a>					
+		   <ul class="sub">
+	 				  <li id="top-menu-124" class="sub-menu-first"><a href="./bravo-logo_files/bravo-logo.png" title="Education">Education</a></li>
+					  <li id="top-menu-136"><a href="http://www.metroarts.org/programs/jazz-in-july/" title="Jazz in July">Jazz in July</a></li>
+					  <li id="top-menu-137"><a href="http://www.metroarts.org/programs/rock-n-run/" title="Rock &#39;n Run">Rock 'n Run</a></li>
+					  <li id="top-menu-144"><a href="http://www.metroarts.org/programs/dining-for-the-arts/" title="Dining for the Arts">Dining for the Arts</a></li>
+					  <li id="top-menu-145" class="sub-menu-last"><a href="http://www.metroarts.org/programs/support-local-artists/" title="Support Local Artists">Support Local Artists</a></li>
+		   </ul>
+	   </li>
+	  <li id="top-menu-108"><a href="http://www.metroarts.org/resources/" title="Resources">Resources</a>					
+		   <ul class="sub">
+	 				  <li id="top-menu-106" class="sub-menu-first"><a href="http://www.metroarts.org/news/" title="News">News</a></li>
+					  <li id="top-menu-143"><a href="http://www.metroarts.org/photo-gallery/" title="Photo Gallery">Photo Gallery</a></li>
+					  <li id="top-menu-112" class="sub-menu-last"><a href="http://www.metroarts.org/videos/" title="Videos">Videos</a></li>
+		   </ul>
+	   </li>
+	  <li id="top-menu-118" class="main-menu-last"><a href="http://www.metroarts.org/calendar/events/" title="Calendar">Calendar</a>					
+		  </li>
+	 </ul>
+ </div>
+
+<div class="body">
+		<div class="full">
+			<h1>Education</h1>
+  
+<p></p><p style="text-align: left;">To request a program, contact Emily Saunders, Education Coordinator, by email: emily @ metroarts.org or by phone at 515-280-3222.&nbsp;</p>
+<h3 style="text-align: left;"><span style="color: #e53219;">Printable PDF</span> of: &nbsp;<a title="Printable PDF" href="http://www.metroarts.org/documents/cms/docs/Printable_Program_Listing.pdf">Metro Arts Education program listing</a> &nbsp;</h3>
+<p align="center"><img src="./bravo-logo_files/MAA_Art_Program_Listing123.jpg" alt="" width="946" height="2723"></p>
+<p><span style="color: #e4361a;">Printable PDF</span> of: &nbsp;<a title="Printable listing" href="http://www.metroarts.org/documents/cms/docs/Printable_Program_Listing.pdf">Metro Arts Education program listing</a></p>
+<p>Apply to be a New Teaching Artist:&nbsp;&nbsp;<a href="http://www.metroarts.org/documents/cms/docs/Teaching_Artist_Application.pdf">Teaching Artist Application</a>&nbsp;&amp;&nbsp;<a href="http://www.metroarts.org/documents/cms/docs/Arts_Education_Program_Proposal.pdf">Program Proposal</a></p>
+<div class="page" title="Page 2">
+<div class="layoutArea">
+<div class="column">
+<p>To request a program, contact Emily Saunders, Education Coordinator, by email: emily @ metroarts.org or by phone at 515-280-3222.&nbsp;</p>
+</div>
+<div>&nbsp;Education Sponsors:</div>
+<div><img src="./bravo-logo_files/Principal.jpg" alt="" width="110" height="65">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <img src="./bravo-logo_files/john_deere_logo.jpg" alt="" width="98" height="71">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; <img src="./bravo-logo_files/DMPS_color_logo.jpg" alt="" width="138" height="58">&nbsp; &nbsp;&nbsp; &nbsp; <img src="./bravo-logo_files/IowaArtsCouncilLogo.jpg" alt="" width="80" height="85">&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <img style="vertical-align: baseline;" src="./bravo-logo_files/reap_color.jpg" alt="" width="100"> &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <img src="./bravo-logo_files/zrt2.jpg" alt="" width="68" height="83">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="./bravo-logo_files/v617.jpg" alt="" width="75" height="83"> &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;</div>
+<div>&nbsp;</div>
+</div>
+</div><p></p>
+
+		</div>
+</div>
+
+<div class="foot">
+  <ul id="bot-menu" class="menu">
+ 	  <li id="bot-menu-122" class="main-menu-first"><a href="http://www.metroarts.org/about-us/" title="About Us">About Us</a></li>
+	  <li id="bot-menu-123"><a href="http://www.metroarts.org/members/" title="Membership">Membership</a></li>
+	  <li id="bot-menu-134"><a href="http://www.metroarts.org/supporters/" title="Supporters">Supporters</a></li>
+	  <li id="bot-menu-135"><a href="http://www.metroarts.org/programs/" title="Programs">Programs</a></li>
+	  <li id="bot-menu-108"><a href="http://www.metroarts.org/resources/" title="Resources">Resources</a></li>
+	  <li id="bot-menu-118" class="main-menu-last"><a href="http://www.metroarts.org/calendar/events/" title="Calendar">Calendar</a></li>
+		<li><a href="http://www.metroarts.org/admin/" target="_blank">Admin</a></li>
+ </ul>
+ 
+ 	 <div class="legal">www.MetroArts.org &nbsp;<img src="./bravo-logo_files/dot-sep.png" width="6" height="6">&nbsp; Metro Arts Alliance of Greater Des Moines &nbsp;<img src="./bravo-logo_files/dot-sep.png" width="6" height="6">&nbsp; info@MetroArts.org &nbsp;<img src="./bravo-logo_files/dot-sep.png" width="6" height="6">&nbsp; 305 East Court Avenue, Des Moines, IA 50309 &nbsp;<img src="./bravo-logo_files/dot-sep.png" width="6" height="6">&nbsp; 515.280.3222 <br> Copyright © 2013 Metro Arts Alliance. All Rights Reserved.</div>
+</div>
+<div class="sponsor">
+	<div class="vsi"><a href="http://www.visionary.com/solutions/website-design.html" target="_blank" title="Des Moines Custom Website Design by Visionary Services">Iowa Web design &amp; development by <strong>Visionary Services</strong></a></div>
+	<div class="sponsor1"><a href="http://www.iowaartscouncil.org/" target="_blank" title="Iowa Arts Council"></a></div>
+	<div class="sponsor2"><a href="http://www.bravogreaterdesmoines.org/" target="_blank" title="Bravo Greater Des Moines"></a></div>
+	<div class="sponsor3"><a href="http://www.metroarts.org/" target="_blank" title=""></a></div>
+	<div class="sponsor4"><a href="http://www.metroarts.org/" target="_blank" title=""></a></div>
+	<div class="sponsor5"><a href="http://www.metroarts.org/" target="_blank" title=""></a></div>
+</div>
+
+
+</div>
+
+</body></html>
