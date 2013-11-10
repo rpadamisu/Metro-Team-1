@@ -97,7 +97,7 @@ $query_Update2 = "UPDATE metro.programs SET programs.activeInd = 1 WHERE program
         <table width="100%"align="left">
           <tr ><?php do { ?>
             <th scope="col" align="left" width="60%" style="border-bottom: 1px solid #000;"><?php echo $row_Recordset['name']; ?></th>
-            <th scope="col" align="right" width="10%" style="border-bottom: 1px solid #000;"><a href="editClass.php?programID=<?php echo $row_Recordset['programID']; ?>">Edit</a></th>
+            <th scope="col" align="right" width="10%" style="border-bottom: 1px solid #000;"><a href="editClass1.php?programID=<?php echo $row_Recordset['programID']; ?>">Edit</a></th>
             <th scope="col" align="right" width="10%" style="border-bottom: 1px solid #000;">
 			<?php if ($row_Recordset['activeInd'] == 1) { ?>
 				<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
@@ -144,9 +144,9 @@ $query_Update2 = "UPDATE metro.programs SET programs.activeInd = 1 WHERE program
 
 </body>
 </html>
-<?php /*
+<?php
 mysql_free_result($query_Recordset);
 mysql_free_result($query_Update1);
 mysql_free_result($query_Update2);
-*/
+
 ?>
