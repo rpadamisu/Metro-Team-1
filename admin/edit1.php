@@ -144,9 +144,9 @@ $query_Update2 = "UPDATE metro.programs SET programs.activeInd = 1 WHERE program
 
 </body>
 </html>
-<?php /*
+<?php
 mysql_free_result($query_Recordset);
 mysql_free_result($query_Update1);
 mysql_free_result($query_Update2);
-*/
+
 ?>

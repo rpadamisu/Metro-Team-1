@@ -35,18 +35,20 @@
 <!--http://stackoverflow.com/questions/10167960/php-populate-drop-down-list-with-sql-data-->
 <html lang="en">
 <head>
-<link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
-<meta http-equiv="content-type" content="text/html; charset=iso-8859-1"/>
-<meta http-equiv="content-language" content="en"/>
-<link rel="icon" href="/images/favicon.png" type="image/png"/>
-<link rel="shortcut icon" href="/images/favicon.png" type="image/png"/>
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1"/>
+	<meta http-equiv="content-language" content="en"/>
+	<link rel="icon" href="/images/favicon.png" type="image/png"/>
+	<link rel="shortcut icon" href="/images/favicon.png" type="image/png"/>
 
-<title>Teacher Enrollment Form</title>
-<!-- <script src="../js/jquery.js"></script> -->
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-<script src="enrollmentscripts.js"></script>
-<link rel="stylesheet" type="text/css" href="/css/global.css">
+	<title>Teacher Enrollment Form</title>
+	<!-- <script src="../js/jquery.js"></script> -->
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+	<script src="enrollmentscripts.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/global.css">
 
 </head>
 <body>
@@ -105,6 +107,7 @@
 <div class="body">
 <div class="full">
 <h1>Teacher Enrollment Form</h1>
+<form method="post" action="education-outreach-test-sendemail-confirmation.php" >
 <table id="infoTable">
 	<tr>
 		<td>First name: </td>
@@ -116,7 +119,11 @@
 	</tr>
 	<tr>
 		<td>School/Organization: </td>
-		<td><input type="text" name="lastname"></td>
+		<td><input type="text" name="school_organization"></td>
+	</tr>
+	<tr>
+		<td>Email: </td>
+		<td><input type="text" name="email"></td>
 	</tr>
 	<tr>
 		<td>Phone: </td>
@@ -124,7 +131,7 @@
 	</tr>
 	<tr>
 		<td>Address: </td>
-		<td><input type="text" id="addressline" name="addressline"></td>
+		<td><input type="text" id="address" name="address"></td>
 	</tr>
 	<tr>
 		<td>City: </td>
@@ -144,7 +151,7 @@
 	</tr>
 	<tr>
 		<td>Date: </td>
-		<td><input type="text" id="datepicker"></td>
+		<td><input type="text" id="datepicker" name="date_request"></td>
 	</tr>
 </table>
 
@@ -161,10 +168,11 @@
 </div> -->
 <h2>Program & Artist Information</h2>
 
-   	Title of Program Requested: <!--php script--><?php echo "<span>".$row_RecordsetProgramName["name"]."</span>";?><br>
-	Course Artist:<!--php script--><?php echo "<span>".$row_RecordsetArtistName["name"]."</span>";?><br>
+   	Title of Program Requested: <!--php script--><?php echo "<span><input style=\"display: none;\" type=\"text\" value=\"".$row_RecordsetProgramName["name"]."\" name=\"programTitle\" readonly></input>".$row_RecordsetProgramName["name"]."</span>";?><br>
+	Course Artist:<!--php script--><?php echo "<span><input style=\"display: none;\" type=\"text\" value=\"".$row_RecordsetArtistName["name"]."\" name=\"artistName\" readonly></input>".$row_RecordsetArtistName["name"]."</span>";?><br>
 	<br><br>
-
+<input type="submit" value="Submit" />
+</form>
 
 <button type="button" id="multiSession">Click Here If Multiple Sessions Are Needed</button> 
 </div>

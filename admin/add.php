@@ -16,7 +16,6 @@ mysql_select_db("metro.artists", $con);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <!-- Site OnCall Version 2.9.0 -->
-<!-- Example Comment for Commit! -->
 <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1"/>
 <meta http-equiv="content-language" content="en"/>
