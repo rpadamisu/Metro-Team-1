@@ -78,7 +78,7 @@ $(document).ready(function()//When the dom is ready
 		<div class="full">
 			<h1>Welcome <?php echo $_SESSION["username"]; ?></h1>
             <p>If you would like to add, edit, or delete a class from the database of classes offered by artists in the Des Moines area please use the links below. </p>
-            <a href="add.php">Add Class</a> | <a href="edit.php">Edit Class</a> | <a href="edit.php">Delete Class</a> | <a href="artists.php">Edit Artists</a>
+            <a href="add.php">Add Class</a> | <a href="edit.php">Edit Class</a> | <a href="edit.php">Delete Class</a> | <a href="editArtist.php">Edit Artists</a>
             <p>&nbsp;</p>
           <p>If you would like to add an admin account please fill out the information below.</p>
           <form action="addUser.php" method="post" name="createUser">

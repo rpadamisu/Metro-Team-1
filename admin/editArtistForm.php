@@ -2,7 +2,7 @@
 session_start();
 
 
-include('../Connection.php'); 
+include('../Connections/metro.php'); 
 if (isset($_SESSION["loggedIn"]) == 0) header("Location: login.php");
 ?>
 
@@ -29,18 +29,17 @@ if (isset($_SESSION["loggedIn"]) == 0) header("Location: login.php");
  <?php include("menu.php"); ?>			
  </div><br><br>
 <?php
-include("../connection.php");
-$con = mysql_connect("localhost", "metro" , "password");
-if (!$con)
+$metro = mysql_connect("localhost", "metro" , "password");
+if (!$metro)
   {
   die('Could not connect: ' . mysql_error());
   }
-mysql_select_db("metro.programs", $con);
+mysql_select_db("metro.artists", $metro);
 
 $artistID = $_GET['artistID'];
 
 $query = "SELECT artists.* FROM metro.artists WHERE artistID = '$artistID'";
-$result = mysql_query($query, $con) or die(mysql_error());
+$result = mysql_query($query, $metro) or die(mysql_error());
 
 while ($row = mysql_fetch_array($result))
 {
@@ -65,8 +64,9 @@ while ($row = mysql_fetch_array($result))
 		$business = $_POST['business'];
 		$discipline = $_POST['discipline'];
 		$updateQuery = "UPDATE metro.artists SET name = '$name', address = '$address', phone = '$phone', email = '$email', business = '$business', discipline = '$discipline' WHERE artistID = '$artistID'";
-		mysql_query($updateQuery, $con) or die(mysql_error());
-		echo "Successfully edited <b>" . $name . "'s </b> contact information"; 
+		$successful = mysql_query($updateQuery, $metro) or die(mysql_error());
+		if ($successful) echo "Successfully edited <b>" . $name . "'s </b> contact information"; 
+		else echo "not successfull";
 	}
 ?>
 </p>

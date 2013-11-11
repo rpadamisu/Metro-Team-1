@@ -267,7 +267,7 @@ $totalRows_Recordset2 = mysql_num_rows($Recordset2);
 	?>	
 	</h2>
   <p><?php echo $row_Recordset2['description']; ?></p>
-  <a align="right" href="http://metro.dev.csgarza.com/EnrollmentForm-test-passclass.php?programID<?php echo urlencode($row_Recordset2[1]);?>" method="GET">Click to Register</a>
+	<a align="right" href="http://metro.dev.csgarza.com/EnrollmentForm-test-passclass.php?programID=<?php echo urlencode($row_Recordset2[0]);?>" method="GET">Click to Register</a>
   </div>
   <hr /> 
   </div>
