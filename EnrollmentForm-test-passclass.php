@@ -147,11 +147,11 @@
 	</tr>
 	<tr>
 		<td>Time Requested: </td>
-		<td><input type="text" id="time" name="time"></td>
+		<td><input type="text" id="time" name="time_requested"></td>
 	</tr>
 	<tr>
 		<td>Date: </td>
-		<td><input type="text" id="datepicker" name="date_request"></td>
+		<td><input type="text" id="datepicker" name="date_requested"></td>
 	</tr>
 </table>
 
