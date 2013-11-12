@@ -68,6 +68,7 @@ $row_Recordset = mysql_fetch_assoc($Recordset);
 <div class="body">
 	<div class="full">
 		<h1>Select an Artist to Edit:</h1>
+        <p align="center"><a href="artists.php">Add Artist</a></p>
 		<p><br /><p>
 		<table width="50%" align="center">
 			<tr ><?php do { ?>
@@ -96,4 +97,3 @@ $row_Recordset = mysql_fetch_assoc($Recordset);
 
 </body>
 </html>
-<?php mysql_free_result($query_Recordset); ?>

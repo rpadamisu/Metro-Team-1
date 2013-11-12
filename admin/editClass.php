@@ -64,6 +64,7 @@ while($row = mysql_fetch_array($result))
 <p style="color:#e31b23;text-align:center;">
 <?php if(isset($_POST["submit"]))
 	{
+		$id = $_POST['programID'];
 		$name = $_POST['name'];
 		$description = $_POST['description'];
 		$duration = $_POST['duration'];
@@ -72,7 +73,7 @@ while($row = mysql_fetch_array($result))
 		$category = $_POST['category'];
 		$supplies = $_POST['supplies'];
 		$greenArts = $_POST['greenArts'];
-		$updateQuery = "UPDATE metro.programs SET name = '\'$name\'', description = '\'$description\'', artistID = '\'$artistID\'', duration = '\'$duration\'', grades = '\'$grades\'', suppliesNeeded = '\'$supplies\'', greenArts = '\'$greenArts\'' WHERE programID = '\'$programID\''";
+		$updateQuery = "UPDATE metro.programs SET name = '\'$name\'', description = '\'$description\'', artistID = '\'$artistID\'', duration = '\'$duration\'', grades = '\'$grades\'', suppliesNeeded = '\'$supplies\'', greenArts = '\'$greenArts\'' WHERE programID = '\'$id\''";
 		mysql_query($updateQuery, $con) or die(mysql_error());
 		echo "Successfully edited the class <b>" . $name . "</b>"; 
 	}

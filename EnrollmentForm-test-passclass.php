@@ -45,11 +45,12 @@
 	<!-- <script src="../js/jquery.js"></script> -->
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	 <script src="../js/jquery.ptTimeSelect.js"></script>
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 
 	<script src="enrollmentscripts.js"></script>
 	<link rel="stylesheet" type="text/css" href="/css/global.css">
-
+	<link rel="stylesheet" type="text/css" href="../css/jquery.ptTimeSelect.css">
 </head>
 <body>
 	<?php echo "".$classTitle; ?>
@@ -119,15 +120,15 @@
 	</tr>
 	<tr>
 		<td>School/Organization: </td>
-		<td><input type="text" name="school_organization"></td>
+		<td><input type="text" id="schoolorg" name="school_organization"></td>
 	</tr>
 	<tr>
 		<td>Email: </td>
-		<td><input type="text" name="email"></td>
+		<td><input type="text" id="email" name="email"></td>
 	</tr>
 	<tr>
-		<td>Phone: </td>
-		<td><input type="tel" name="usrtel"></td>
+		<td>Phone: (ex: 123-456-7890) </td>
+		<td><input type="tel" id="phone" name="usrtel"></td>
 	</tr>
 	<tr>
 		<td>Address: </td>
@@ -139,7 +140,60 @@
 	</tr>
 	<tr>
 		<td>State: </td>
-		<td><input type="text" id="state" name="state"></td>
+		<!-- <td><input type="text" id="state" name="state"></td> -->
+		<td><select id="state" name="state">
+				<option value="AL">Alabama</option>
+				<option value="AK">Alaska</option>
+				<option value="AZ">Arizona</option>
+				<option value="AR">Arkansas</option>
+				<option value="CA">California</option>
+				<option value="CO">Colorado</option>
+				<option value="CT">Connecticut</option>
+				<option value="DE">Delaware</option>
+				<option value="DC">District Of Columbia</option>
+				<option value="FL">Florida</option>
+				<option value="GA">Georgia</option>
+				<option value="HI">Hawaii</option>
+				<option value="ID">Idaho</option>
+				<option value="IL">Illinois</option>
+				<option value="IN">Indiana</option>
+				<option value="IA">Iowa</option>
+				<option value="KS">Kansas</option>
+				<option value="KY">Kentucky</option>
+				<option value="LA">Louisiana</option>
+				<option value="ME">Maine</option>
+				<option value="MD">Maryland</option>
+				<option value="MA">Massachusetts</option>
+				<option value="MI">Michigan</option>
+				<option value="MN">Minnesota</option>
+				<option value="MS">Mississippi</option>
+				<option value="MO">Missouri</option>
+				<option value="MT">Montana</option>
+				<option value="NE">Nebraska</option>
+				<option value="NV">Nevada</option>
+				<option value="NH">New Hampshire</option>
+				<option value="NJ">New Jersey</option>
+				<option value="NM">New Mexico</option>
+				<option value="NY">New York</option>
+				<option value="NC">North Carolina</option>
+				<option value="ND">North Dakota</option>
+				<option value="OH">Ohio</option>
+				<option value="OK">Oklahoma</option>
+				<option value="OR">Oregon</option>
+				<option value="PA">Pennsylvania</option>
+				<option value="RI">Rhode Island</option>
+				<option value="SC">South Carolina</option>
+				<option value="SD">South Dakota</option>
+				<option value="TN">Tennessee</option>
+				<option value="TX">Texas</option>
+				<option value="UT">Utah</option>
+				<option value="VT">Vermont</option>
+				<option value="VA">Virginia</option>
+				<option value="WA">Washington</option>
+				<option value="WV">West Virginia</option>
+				<option value="WI">Wisconsin</option>
+				<option value="WY">Wyoming</option>
+			</select></td>
 	</tr>
 	<tr>
 		<td>ZIP: </td>
@@ -171,10 +225,10 @@
    	Title of Program Requested: <!--php script--><?php echo "<span><input style=\"display: none;\" type=\"text\" value=\"".$row_RecordsetProgramName["name"]."\" name=\"programTitle\" readonly></input>".$row_RecordsetProgramName["name"]."</span>";?><br>
 	Course Artist:<!--php script--><?php echo "<span><input style=\"display: none;\" type=\"text\" value=\"".$row_RecordsetArtistName["name"]."\" name=\"artistName\" readonly></input>".$row_RecordsetArtistName["name"]."</span>";?><br>
 	<br><br>
-<input type="submit" value="Submit" />
+<input type="submit" id="submitButton" value="Submit" />
+<input type="button" id="clearButton" value="Clear" />
 </form>
 
-<button type="button" id="multiSession">Click Here If Multiple Sessions Are Needed</button> 
 </div>
 </div>
 <div class="foot">

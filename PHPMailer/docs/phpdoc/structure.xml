@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a8" title="PHPMailer version 5.2.4">
+  <file path="class.phpmailer.php" hash="5c293086cfc0b6bb5852ac8aad5840d4" package="PHPMailer">
+    <docblock line="25">
+      <description><![CDATA[PHPMailer - PHP email creation and transport class
+NOTE: Requires PHP version 5 or later]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="25" name="package" description="PHPMailer"/>
+      <tag line="25" name="author" description="Andy Prevost"/>
+      <tag line="25" name="author" description="Marcus Bointon"/>
+      <tag line="25" name="author" description="Jim Jagielski"/>
+      <tag line="25" name="copyright" description="2010 - 2012 Jim Jagielski"/>
+      <tag line="25" name="copyright" description="2004 - 2009 Andy Prevost"/>
+      <tag line="25" name="license" description="http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License"/>
+    </docblock>
+    <include line="968" type="Require Once" package="PHPMailer">
+      <name/>
+    </include>
+    <include line="1151" type="Include" package="PHPMailer">
+      <name/>
+    </include>
+    <class final="false" abstract="false" namespace="global" line="43" package="PHPMailer">
+      <extends/>
+      <name>PHPMailer</name>
+      <full_name>\PHPMailer</full_name>
+      <docblock line="39">
+        <description><![CDATA[PHP email creation and transport class]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="39" name="package" description="PHPMailer"/>
+      </docblock>
+      <constant namespace="global" line="490" package="PHPMailer">
+        <name>STOP_MESSAGE</name>
+        <full_name>STOP_MESSAGE</full_name>
+        <value><![CDATA[0]]></value>
+      </constant>
+      <constant namespace="global" line="491" package="PHPMailer">
+        <name>STOP_CONTINUE</name>
+        <full_name>STOP_CONTINUE</full_name>
+        <value><![CDATA[1]]></value>
+      </constant>
+      <constant namespace="global" line="492" package="PHPMailer">
+        <name>STOP_CRITICAL</name>
+        <full_name>STOP_CRITICAL</full_name>
+        <value><![CDATA[2]]></value>
+      </constant>
+      <constant namespace="global" line="493" package="PHPMailer">
+        <name>CRLF</name>
+        <full_name>CRLF</full_name>
+        <value><![CDATA["\r\n"]]></value>
+      </constant>
+      <property final="false" static="false" visibility="public" line="53" namespace="global" package="PHPMailer">
+        <name>$Priority</name>
+        <default><![CDATA[3]]></default>
+        <docblock line="49">
+          <description><![CDATA[Email priority (1 = High, 3 = Normal, 5 = low).]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="49" name="var" description="" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docbloc
