@@ -2,7 +2,7 @@
 session_start();
 
 
-include('../Connections/metro.php'); 
+include('../Connection.php'); 
 if (isset($_SESSION["loggedIn"]) == 0) header("Location: login.php");
 ?>
 
@@ -51,29 +51,16 @@ while ($row = mysql_fetch_array($result))
 	$business = $row['business'];
 	$discipline = $row['discipline'];
 }
+
 ?>
 
 <div class="full">
 <p style="color:#e31b23;text-align:center;">
-<?php if(isset($_POST["submit"]))
-	{
-		$name = $_POST['name'];
-		$address = $_POST['address'];
-		$phone = $_POST['phone'];
-		$email = $_POST['email'];
-		$business = $_POST['business'];
-		$discipline = $_POST['discipline'];
-		$updateQuery = "UPDATE metro.artists SET name = '$name', address = '$address', phone = '$phone', email = '$email', business = '$business', discipline = '$discipline' WHERE artistID = '$artistID'";
-		$successful = mysql_query($updateQuery, $metro) or die(mysql_error());
-		if ($successful) echo "Successfully edited <b>" . $name . "'s </b> contact information"; 
-		else echo "not successfull";
-	}
-?>
 </p>
 </div>
 <div id="text">
     <table width="595">
-    <form name="update" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+    <form name="update" action="editArtistProcess.php" method="POST">
 	<input name="artistID" type="hidden" value="<?php echo $artistID; ?>" />
 	      <tr>
         <td width="112">Name:</td>
