@@ -29,20 +29,19 @@ if (isset($_SESSION["loggedIn"]) == 0) header("Location: login.php");
  <?php include("menu.php"); ?>			
  </div><br><br>
 <?php
-include("../connection.php");
-$con = mysql_connect("localhost", "metro" , "password");
-if (!$con)
+$metro = mysql_connect("localhost", "metro" , "password");
+if (!$metro)
   {
   die('Could not connect: ' . mysql_error());
   }
-mysql_select_db("metro.programs", $con);
+mysql_select_db("metro.programs", $metro);
 	
 $programID = $_GET['programID'];
 
-$query = "SELECT programs.* , artists.name FROM metro.programs JOIN metro.artists ON artists.artistID = programs.artistID WHERE programID = '$programID'";
-$artistQuery = "SELECT DISTINCT artists.name FROM metro.artists";
-$result = mysql_query($query,$con) or die(mysqlerror());
-$artistResult = mysql_query($artistQuery,$con) or die(mysqlerror());
+$query = "SELECT programs.* , artists.name FROM metro.programs JOIN metro.artists ON artists.artistID = programs.artistID WHERE programID = $programID";
+$artistQuery = "SELECT DISTINCT artists.name, artists.artistID FROM metro.artists;";
+$result = mysql_query($query,$metro) or die(mysqlerror());
+$artistResult = mysql_query($artistQuery,$metro) or die(mysqlerror());
 $artistRow = mysql_fetch_assoc($artistResult);
 
 while($row = mysql_fetch_array($result))
@@ -56,33 +55,14 @@ while($row = mysql_fetch_array($result))
 		$category = $row[8];   
 		$supplies = $row[10];
 		$greenArts = $row[9]; 
-		$artistID = $row[2];
+		$artistID = $artistRow[2];
 }
 
 ?>
-<div class="full">
-<p style="color:#e31b23;text-align:center;">
-<?php if(isset($_POST["submit"]))
-	{
-		$id = $_POST['programID'];
-		$name = $_POST['name'];
-		$description = $_POST['description'];
-		$duration = $_POST['duration'];
-		$artistID = $_POST['artist'];
-		$grades = $_POST['grades'];
-		$category = $_POST['category'];
-		$supplies = $_POST['supplies'];
-		$greenArts = $_POST['greenArts'];
-		$updateQuery = "UPDATE metro.programs SET name = '\'$name\'', description = '\'$description\'', artistID = '\'$artistID\'', duration = '\'$duration\'', grades = '\'$grades\'', suppliesNeeded = '\'$supplies\'', greenArts = '\'$greenArts\'' WHERE programID = '\'$id\''";
-		mysql_query($updateQuery, $con) or die(mysql_error());
-		echo "Successfully edited the class <b>" . $name . "</b>"; 
-	}
-?>
-</p>
-</div>
+
 <div id="text">
     <table width="595">
-    <form name="update" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+    <form name="update" action="editClassProcess.php" method="POST">
     <input name="programID" type="hidden" value="<?php echo $programID; ?>" />
       <tr>
         <td width="112">Title:</td>
@@ -105,11 +85,12 @@ while($row = mysql_fetch_array($result))
         <td>Artist:</td>
         <td><select name="artist" id="artist" style="width:200px;"> 
 		<?php 
-			if ($artistRow['name'] == $thisArtist) {
-				echo "<option value=\"".$artistRow['name']."\" selected>".$artistRow['name']."</option>";
-			}
+			
 			do { 
-			echo "<option value=\"".$artistRow['artistID']."\">".$artistRow['name']."</option>";
+			echo "<option value=".$artistRow['artistID'].">".$artistRow['name']."</option>";
+			if ($artistRow['name'] == $thisArtist) {
+				echo "<option value=\"".$artistRow['artistID']."\" selected>".$artistRow['name']."</option>";
+			}
 			
 			} while($artistRow = mysql_fetch_assoc($artistResult))
 		?> 
@@ -151,9 +132,9 @@ while($row = mysql_fetch_array($result))
  
  	 <div class="legal">www.MetroArts.org &nbsp;<img src="/images/foot/dot-sep.png" width="6" height="6" />&nbsp; Metro Arts Alliance of Greater Des Moines &nbsp;<img src="/images/foot/dot-sep.png" width="6" height="6" />&nbsp; info@MetroArts.org &nbsp;<img src="/images/foot/dot-sep.png" width="6" height="6" />&nbsp; 305 East Court Avenue, Des Moines, IA 50309 &nbsp;<img src="/images/foot/dot-sep.png" width="6" height="6" />&nbsp; 515.280.3222 <br/> Copyright &copy; 2013 Metro Arts Alliance. All Rights Reserved.</div>
 </div>
-<?php /*
+<?php 
 mysql_free_result($result);
 mysql_free_result($artistResult);
-*/?>
+?>
 </body>
 </html>

@@ -252,7 +252,16 @@ $totalRows_Recordset2 = mysql_num_rows($Recordset2);
 	  }
 	  ?>font-size:16px"><?php echo $row_Recordset2[1]; if ($row_Recordset2['greenArts'] == '1') echo ' <img src="images/greenArtsLogo.JPG" /> '; ?></h1>
     <a class="expandButton" id="button<?php echo $count;?>" >Click here to see more Info.</a>
-    <h2 style="font-size:14px"><?php echo "Grades:" . " " . $row_Recordset2['grades'];?><br /><?php echo "Duration:" . " " . $row_Recordset2['duration'] . " minutes"; ?></h2>
+    <h2 style="font-size:14px"><?php echo "Grades: ";
+    $gradesArray = explode(' ', $row_Recordset2['grades']);
+    
+    echo $gradesArray[0];
+    $gradesLength = (count($gradesArray) - 1);
+    $gradesLength = $gradesLength - 1;
+    
+    echo " - " . $gradesArray[$gradesLength];
+   
+    ?><br /><?php echo "Duration:" . " " . $row_Recordset2['duration'] . " minutes"; ?></h2>
     </div>
     <div class="longDescription" id="long<?php echo $count;?>">
 	<h2 style="font-size:14px"><?php echo "Teaching Artist:" . " " . $row_Recordset2[11]; ?><br /><?php echo "Supplies Needed:" . " "?>
@@ -268,7 +277,7 @@ $totalRows_Recordset2 = mysql_num_rows($Recordset2);
 	?>	
 	</h2>
     <p><?php echo $row_Recordset2['description']; ?></p>
-	<a align="right" href="http://metro.dev.csgarza.com/EnrollmentForm-test-passclass.php?programID=<?php echo urlencode($row_Recordset2[0]);?>" method="GET">Click to Register</a>
+	<a align="right" href="http://metro.dev.csgarza.com/EnrollmentForm.php?programID=<?php echo urlencode($row_Recordset2[0]);?>" method="GET">Click to Register</a>
     </div>
     <hr />
   </div>

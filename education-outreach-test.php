@@ -32,11 +32,11 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 
 mysql_select_db($database_metro, $metro);
-$query_Recordset2 = "SELECT programs.*  FROM metro.programs  JOIN metro.artists  ON artists.artistID = programs.artistID AND programs.activeInd = 1 ";
+$query_Recordset2 = "SELECT programs.* , artists.name FROM metro.programs  JOIN metro.artists  ON artists.artistID = programs.artistID AND programs.activeInd = 1 ";
 $query_Recordset3 = "SELECT DISTINCT programs.category FROM metro.programs";
 $Recordset2 = mysql_query($query_Recordset2, $metro) or die(mysql_error());
 $Recordset3 = mysql_query($query_Recordset3, $metro) or die(mysql_error());
-$row_Recordset2 = mysql_fetch_assoc($Recordset2);
+$row_Recordset2 = mysql_fetch_array($Recordset2);
 $row_Recordset3 = mysql_fetch_assoc($Recordset3);
 $totalRows_Recordset2 = mysql_num_rows($Recordset2);
 ?>
@@ -63,6 +63,11 @@ $totalRows_Recordset2 = mysql_num_rows($Recordset2);
 .longDescription {
 	display: none
 }
+.visualArts {color: #1b70e3; }
+.music {color: #991be3;}
+.performance {color: #e3a81b;}
+.storytelling {color: #30e31b; }
+.writing {color: #d7e31b;}
 </style>
 <script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="/js/standard.js"></script>
@@ -88,7 +93,40 @@ $totalRows_Recordset2 = mysql_num_rows($Recordset2);
 			//alert(newNumber);
 			$("#long"+newNumber).slideToggle();
 		})
+		
+		
 	})
+	
+	function toggleGreenLeaf()
+	{
+	    var checkBox = document.getElementById("greenLeafCheckBox");
+	    if(checkBox.checked)
+	    {
+	      //do some DOM stuff to move thru and find green leafs
+	      //hide all classes then only display green leafs
+	      $(".fullClass").hide();
+	      var classArray = $(".fullClass").children("span");
+	      
+	      var id = ""
+	      for(var i = 0; i < classArray.length; i++)
+	      {
+		 if(classArray[i].innerHTML=="green")
+		 {
+		     id = classArray[i].id;
+		     id = id.substring(5);
+		     
+		    // document.getElementById("fullClass"+id).display="inline";
+		     $("#fullClass"+id).show();
+		   
+		 }
+	      }
+	      
+	    }
+	    else
+	    {
+	      $(".fullClass").show();
+	    }
+	}
 </script>
 <script type='text/javascript'>
 	window.onload = function(){
@@ -132,7 +170,7 @@ $totalRows_Recordset2 = mysql_num_rows($Recordset2);
 	   </li>
 	  <li id='top-menu-135'><a href="/programs/" title="Programs">Programs</a>					
 		   <ul class="sub">
-	 				  <li id='top-menu-124' class='sub-menu-first'><a href="/education-outreach.php/" title="Education">Education</a></li>
+	 				  <li id='top-menu-124' class='sub-menu-first'><a href="/education-outreach.php" title="Education">Education</a></li>
 					  <li id='top-menu-136'><a href="/programs/jazz-in-july/" title="Jazz in July">Jazz in July</a></li>
 					  <li id='top-menu-137'><a href="/programs/rock-n-run/" title="Rock 'n Run">Rock 'n Run</a></li>
 					  <li id='top-menu-144'><a href="/programs/dining-for-the-arts/" title="Dining for the Arts">Dining for the Arts</a></li>
@@ -153,24 +191,37 @@ $totalRows_Recordset2 = mysql_num_rows($Recordset2);
 
 <div class="body">
 		<div class="full">
-			<h1>Education</h1>
+			<a href="http://metro.dev.csgarza.com/education-outreach.php" style="color:#e31b23;font-size:20px">Education</a>
   
 <p><p style="text-align: left;">To request a program, contact Emily Saunders, Education Coordinator, by email: emily @ metroarts.org or by phone at 515-280-3222.&nbsp;</p>
 <h3 style="text-align: left;"><span style="color: #e53219;">Printable PDF</span> of: &nbsp;<a title="Printable PDF" href="/documents/cms/docs/Printable_Program_Listing.pdf">Metro Arts Education program listing</a> &nbsp;</h3>
-
-<p align="left">Click on a class to see more information!</p>
 <p align="center"><img src="images/greenArtsLogo.JPG" /> Indicates a Green Arts Program, for which funding is available.</p>
 <p>
 	<form action="sorted.php" method="get">
 	<select name="sortedClasses" id="sort">
 	<?php 
 		do{
-		echo "<option value=\"".$row_Recordset3['category']."\">".$row_Recordset3['category']."</option>";
+			if ($row_Recordset3['category'] == 'Visual Arts') 
+			echo "<option class='visualArts' value=\"".$row_Recordset3['category']."\">".$row_Recordset3['category']."</option>";
+			else if ($row_Recordset3['category'] == 'Music') 
+			echo "<option class='music' value=\"".$row_Recordset3['category']."\">".$row_Recordset3['category']."</option>";
+			else if ($row_Recordset3['category'] == 'Performance') 
+			echo "<option class='performance' value=\"".$row_Recordset3['category']."\">".$row_Recordset3['category']."</option>";
+			else if ($row_Recordset3['category'] == 'Storytelling') 
+			echo "<option class='storytelling' value=\"".$row_Recordset3['category']."\">".$row_Recordset3['category']."</option>";
+			else if ($row_Recordset3['category'] == 'Writing') 
+			echo "<option class='writing' value=\"".$row_Recordset3['category']."\">".$row_Recordset3['category']."</option>";
+		else echo "<option value=\"".$row_Recordset3['category']."\">".$row_Recordset3['category']."</option>";
 		}while($row_Recordset3 = mysql_fetch_assoc($Recordset3))
 	?>
 	</select>
     <input type="submit" />
 	</form>
+	
+	<div>
+	  <label for="greenLeafCheckBox" >Click this button to only show Green Leaf Programs</label>
+	  <input id="greenLeafCheckBox" type="checkbox" onclick="toggleGreenLeaf()" />
+	</div>
 	
 <p/>
 
@@ -178,35 +229,60 @@ $totalRows_Recordset2 = mysql_num_rows($Recordset2);
 <p>&nbsp;</p>
 	<?php $count = 1; ?>
   <?php do { ?>
-  <div class="shortDescription" id="short<?php echo $count;?>">
-  <h1 style="<?php if($row_Recordset2['category'] == 'Visual Arts') { 
-	echo 'color:#991be3;' ;
-	}
-	elseif($row_Recordset2['category'] == 'Music'){
-	echo 'color:#1b70e3;' ;
-	}
-	elseif($row_Recordset2['category'] == 'Performance'){
-	echo 'color:#e31b23;' ;
-	}
-	elseif($row_Recordset2['category'] == 'Storytelling'){
-	echo 'color:#30e31b;' ;
-	}
-	elseif($row_Recordset2['category'] == 'Writing'){
-	echo 'color:#e2761b;' ;
-	}
-	else{
-	echo 'color:#e31b23;' ;
-	}
-	?>font-size:16px"><?php echo $row_Recordset2['name']; if ($row_Recordset2['greenArts'] == '1') echo ' <img src="images/greenArtsLogo.JPG" /> '; ?></h1>
-  <a class="expandButton" id="button<?php echo $count;?>" >Click here to see more Info.</a>
-  <h2 style="font-size:14px"><?php echo "Grades:" . " " . $row_Recordset2['grades'];?><br /><?php echo "Duration:" . " " . $row_Recordset2['duration'] . " minutes"; ?></h2>
+  <div class="fullClass" id="fullClass<?php echo $count; ?>">
+  <span id ="green<?php echo $count; ?>" style="display: none"><?php if ($row_Recordset2['greenArts'] == '1') echo 'green'; else echo 'notgreen'; ?></span>
+    <div class="shortDescription" id="short<?php echo $count;?>">
+    <h1 style="<?php if($row_Recordset2['category'] == 'Visual Arts') { 
+	  echo 'color:#1b70e3;' ;
+	  }
+	  elseif($row_Recordset2['category'] == 'Music'){
+	  echo 'color:#991be3;' ;
+	  }
+	  elseif($row_Recordset2['category'] == 'Performance'){
+	  echo 'color:#e3a81b;' ;
+	  }
+	  elseif($row_Recordset2['category'] == 'Storytelling'){
+	  echo 'color:#30e31b;' ;
+	  }
+	  elseif($row_Recordset2['category'] == 'Writing'){
+	  echo 'color:#d7e31b;' ;
+	  }
+	  else{
+	  echo 'color:#e31b23;' ;
+	  }
+	  ?>font-size:16px"><?php echo $row_Recordset2[1]; if ($row_Recordset2['greenArts'] == '1') echo ' <img src="images/greenArtsLogo.JPG" /> '; ?></h1>
+    <a class="expandButton" id="button<?php echo $count;?>" >Click here to see more Info.</a>
+    <h2 style="font-size:14px"><?php echo "Grades:" . " ";
+    $gradesArray = explode(' ', $row_Recordset2['grades']);
+    
+    echo $gradesArray[0];
+    $gradesLength = (count($gradesArray) - 1);
+    $gradesLength = $gradesLength - 1;
+    
+    echo " - " . $gradesArray[$gradesLength];
+   
+    ?><br /><?php echo "Duration:" . " " . $row_Recordset2['duration'] . " minutes"; ?></h2>
+    </div>
+    <div class="longDescription" id="long<?php echo $count;?>">
+	<h2 style="font-size:14px"><?php echo "Teaching Artist:" . " " . $row_Recordset2[11]; ?><br /><?php echo "Supplies Needed:" . " "?>
+	<?php
+		if(!$row_Recordset2['suppliesNeeded'])
+		{
+			echo "None";
+		}
+		else
+		{
+			echo $row_Recordset2['suppliesNeeded'];
+		}
+	?>	
+	</h2>
+    <p><?php echo $row_Recordset2['description']; ?></p>
+	<a align="right" href="http://metro.dev.csgarza.com/EnrollmentForm-test-passclass.php?programID=<?php echo urlencode($row_Recordset2[0]);?>" method="GET">Click to Register</a>
+    </div>
+    <hr />
   </div>
-  <div class="longDescription" id="long<?php echo $count;?>">
-  <p><?php echo $row_Recordset2['description']; ?></p>
-  </div>
-  <hr />
   <?php $count++; ?>
-  <?php } while ($row_Recordset2 = mysql_fetch_assoc($Recordset2)); ?>
+  <?php } while ($row_Recordset2 = mysql_fetch_array($Recordset2)); ?>
 </div>
 
 
@@ -256,4 +332,5 @@ $totalRows_Recordset2 = mysql_num_rows($Recordset2);
 </html>
 <?php
 mysql_free_result($Recordset2);
+mysql_free_result($Recordset3);
 ?>

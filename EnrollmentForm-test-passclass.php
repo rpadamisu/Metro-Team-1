@@ -46,6 +46,8 @@
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	 <script src="../js/jquery.ptTimeSelect.js"></script>
+	 <script src="http://jquery.bassistance.de/validate/jquery.validate.js"></script>
+	<script src="http://jquery.bassistance.de/validate/additional-methods.js"></script>
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 
 	<script src="enrollmentscripts.js"></script>
@@ -107,9 +109,10 @@
  </div>
 <div class="body">
 <div class="full">
+<span id="teacherInfoSpan">
 <h1>Teacher Enrollment Form</h1>
-<form method="post" action="education-outreach-test-sendemail-confirmation.php" >
-<table id="infoTable">
+<form id="teacherForm" method="post" action="education-outreach-test-sendemail-confirmation.php" >
+<table id="teacherInfoTable">
 	<tr>
 		<td>First name: </td>
 		<td><input type="text" id="firstname" name="firstname"></td>
@@ -128,7 +131,7 @@
 	</tr>
 	<tr>
 		<td>Phone: (ex: 123-456-7890) </td>
-		<td><input type="tel" id="phone" name="usrtel"></td>
+		<td><input type="text" id="phone" name="phone"></td>
 	</tr>
 	<tr>
 		<td>Address: </td>
@@ -199,6 +202,11 @@
 		<td>ZIP: </td>
 		<td><input type="text" id="zip" name="zip"></td>
 	</tr>
+</table>
+</span>
+<span id="classInfoSpan">
+<h1>Class Information</h1>
+<table id="classRequestedInfoTable" >
 	<tr>
 		<td>Time Requested: </td>
 		<td><input type="text" id="time" name="time_requested"></td>
@@ -207,8 +215,20 @@
 		<td>Date: </td>
 		<td><input type="text" id="datepicker" name="date_requested"></td>
 	</tr>
+	<tr>
+		<td>Location: </td>
+		<td><input type="text" id="location" name="location"></td>
+	</tr>
+	<tr>
+		<td>Room Number: </td>
+		<td><input type="text" id="roomNum" name="roomNum"></td>
+	</tr>
+	<tr>
+		<td>Number of Participants: </td>
+		<td><input type="text" id="numParticipants" name="numParticipants"></td>
+	</tr>
 </table>
-
+</span>
 <!-- <h2>Personal Info:</h2>
 <div id="personal_info">
 	First name: <input type="text" id="firstname" name="firstname"><br>
