@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset2" value="name:programID;datatype:int,name:name;datatype:string,name:artistID;datatype:int,name:grades;datatype:string,name:sessions;datatype:int,name:duration;datatype:int,name:description;datatype:blob,name:activeInd;datatype:string,name:category;datatype:string,name:greenArts;datatype:int,name:suppliesNeeded;datatype:string" />
+</info>

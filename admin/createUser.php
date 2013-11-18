@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		header("Refresh:2; url=home.php");	
 	}
 	else {
-		header("Refresh:2; url=add.php");	
+		header("Refresh:2; url=home.php");	
 		echo "Artist added";
 	}
 	mysql_close($con);

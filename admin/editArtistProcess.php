@@ -24,7 +24,7 @@ $name = $_POST['name'];
 		
 		$updateQuery = "UPDATE metro.artists SET name = '$name', address = '$address', phone = '$phone', email = '$email', business = '$business', discipline = '$discipline' WHERE artistID = '$artistID'";
 		$successful = mysql_query($updateQuery, $metro) or die(mysql_error());
-		if ($successful) echo "Successfully edited <b>" . $name . "'s </b> contact information. If page does not redirect you in 5 seconds please click here: <a href='editArtist.php'>Edit Class</a>"; 
+		if ($successful) echo "Successfully edited <b>" . $name . "'s </b> contact information. If page does not redirect you in 5 seconds please click here: <a href='editArtist.php'>Edit Artist</a>"; 
 		else echo "not successful";
 }
 else header("Location: editArtist.php");

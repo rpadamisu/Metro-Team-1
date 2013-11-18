@@ -1,8 +1,13 @@
 <?php
     
-    
+//-------Include------------
+//Connection --> DB connection
+//PHPMailer --> Able to send mail via Gmail
     include("/Connections/metro.php");
     include("/PHPMailer/class.phpmailer.php");
+//--------------------------
+
+//---------Grabbing variables that passed------
     
     if(isset($_POST['firstname']))
         $firstname = $_POST['firstname'];
@@ -23,7 +28,6 @@
             echo "This email address is considered valid.";
         else
             echo "nope.";
-
     }
         
         
@@ -32,8 +36,7 @@
         $telnumber = $_POST['usrtel'];
         echo preg_match("/((\(\d{3}\))|(\d{3}-))\d{3}-\d{4}/", $telnumber);
     }
-        
-        
+         
     if(isset($_POST['address']))
         $address = $_POST['address'];
         
@@ -61,15 +64,24 @@
     if(isset($_POST['artistName']))
         $artistName = $_POST['artistName'];
         
-    
+    if(isset($_POST['location']))
+        $location = $_POST['location'];
+        
+    if(isset($_POST['roomNum']))
+        $roomNum = $_POST['roomNum'];
+        
+    if(isset($_POST['numParticipants']))
+        $numParticipants = $_POST['numParticipants'];
+        
+    echo $location . $roomNum . $numParticipants;
         
     //echo $fullname . " " . $school_org . " " . $email . " " .$telnumber . " " . $fulladdress . " " . $time_requested . " " . $date_requested;
     //echo $programTitle;
     //echo $artistName;
+//--------------------------------------------------------------------------
     
     
-    
-    
+    //using DB on metro connection
     mysql_select_db($database_metro, $metro);
     
 //----------TEACHER INFO-------------------------- DONE-----UNCOMMENT QUERIES TO INSERT
@@ -88,13 +100,13 @@
 
 //---------GRABBING PROGRAM ID---------------------- DONE
     $query_RecordsetProgram = "SELECT programID FROM metro.programs WHERE programs.name = '".$programTitle."';";
-    echo $query_RecordsetProgram;
+    //echo $query_RecordsetProgram;
     $RecordsetProgram = mysql_query($query_RecordsetProgram, $metro) or die(mysql_error());
     $row_RecordsetProgramID = mysql_fetch_assoc($RecordsetProgram);
 //-------------------------------------------------
 
 
-//------------EVENT INFO-------------------------- INCLUDE eventDateTime, location, roomNum, numParticipants, status, evaluationId
+//------------EVENT INFO-------------------------- INCLUDE eventDateTime (what is this field), donelocation, doneroomNum, donenumParticipants, **status, **evaluationId***
     //Grabbing last eventID to increment and insert event info into event table
     $query_RecordsetEventID = "SELECT events.eventID FROM metro.events ORDER BY events.eventID DESC LIMIT 1;";
     $RecordsetEventID = mysql_query($query_RecordsetEventID, $metro) or die(mysql_error());
@@ -105,55 +117,56 @@
     $query_RecordsetEvent = "INSERT INTO metro.events (eventID, teacherID, location, roomNum, numParticipants, eventDateTime, dateOfRequest, status, evaluationID, programID)
                             VALUES ('".$row_RecordsetEventID['eventID']."', '".$row_RecordsetID['teacherID']."', '".$location."', '".$roomNum."', '".$numParticipants."',
                             '".$eventDateTime."', '".$date_requested."', '".$status."', '".$evaluationID."', '".$row_RecordsetProgramID['programID']."');";
-    echo $query_RecordsetEvent;
+    //echo $query_RecordsetEvent;
     //$RecordsetEveht = mysql_query($query_RecordsetEvent, $metro) or die(mysql_error());
 //---------------------------------------------------------
 
 
 //------------GRAB ARTIST INFO TO EMAIL-------------------- DONE
     $query_RecordsetArtistEmail = "SELECT artists.email FROM metro.artists WHERE artists.name = '".$artistName."';";
-    echo $query_RecordsetArtistEmail;
+    //echo $query_RecordsetArtistEmail;
     $RecordsetArtistEmail = mysql_query($query_RecordsetArtistEmail, $metro) or die(mysql_error());
     $row_RecordsetArtistEmail = mysql_fetch_assoc($RecordsetArtistEmail);
     
 //---------------------------------------------------------
     
 //---------EMAIL TO ********_______TEACHER__________********** FOR CONFIRMATION----------------	
-$mail             = new PHPMailer();
+$mailTeacher             = new PHPMailer(); //create mail object
 
-$body             = file_get_contents('test.html');
-//$body             = preg_replace('/[\]/','',$body);
+$bodyTeacher             = "<html><body><p>this is a paragraph</p></body></htmL>"; //contents to send
+//$body             = preg_replace('/[\]/','',$body); //prereplacing
 
-$mail->IsSMTP(); // telling the class to use SMTP
-$mail->Host       = "mail.csgarza.com"; // SMTP server
-$mail->SMTPDebug  = 0;                     // enables SMTP debug information (for testing)
+$mailTeacher->IsSMTP(); // telling the class to use SMTP
+$mailTeacher->Host       = "mail.csgarza.com"; // SMTP server
+$mailTeacher->SMTPDebug  = 0;                     // enables SMTP debug information (for testing)
                                            // 1 = errors and messages
                                            // 2 = messages only
-$mail->SMTPAuth   = true;                  // enable SMTP authentication
-$mail->SMTPSecure = "tls";                 // sets the prefix to the servier
-$mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
-$mail->Port       = 587;                   // set the SMTP port for the GMAIL server
-$mail->Username   = "metroalliancewebsite@gmail.com";  // GMAIL username
-$mail->Password   = "MetroPa\$\$word";            // GMAIL password
+$mailTeacher->SMTPAuth   = true;                  // enable SMTP authentication
+$mailTeacher->SMTPSecure = "tls";                 // sets the prefix to the servier
+$mailTeacher->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
+$mailTeacher->Port       = 587;                   // set the SMTP port for the GMAIL server
+$mailTeacher->Username   = "metroalliancewebsite@gmail.com";  // GMAIL username
+$mailTeacher->Password   = "MetroPa\$\$word";            // GMAIL password
 
-$mail->SetFrom('metroalliancewebsite@gmail.com', 'Metro Website');
+$mailTeacher->SetFrom('metroalliancewebsite@gmail.com', 'Metro Website'); //from Metro Website <metroalliancewebsite@gmail.com>
 
-$mail->AddReplyTo("metroalliancewebsite@gmail.com","Metro Website");
+$mailTeacher->AddReplyTo("metroalliancewebsite@gmail.com","Metro Website"); //reply to Metro Website <metroalliancewebsite@gmail.com>
 
-$mail->Subject    = "PHPMailer Test Subject via smtp (Gmail), basic";
+$mailTeacher->Subject    = "PHPMailer Test Subject via smtp (Gmail), basic"; //email subject
 
 //$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
 
-$mail->MsgHTML($body);
+$mailTeacher->MsgHTML($bodyTeacher); //adding body to mail object
 
-$address = "tedmunds@iastate.edu";
-$mail->AddAddress($address, "Ted");
+$addressTeacher = "tedmunds@iastate.edu"; //send to address
+$mailTeacher->AddAddress($addressTeacher, "Ted"); //adding name to email address
 
 //$mail->AddAttachment("images/phpmailer.gif");      // attachment
 //$mail->AddAttachment("images/phpmailer_mini.gif"); // attachment
 
-if(!$mail->Send()) {
-  echo "Mailer Error: " . $mail->ErrorInfo;
+//sending email and if it doesn't send, spit back error, otherwise echo Message Sent!
+if(!$mailTeacher->Send()) {
+  echo "Mailer Error: " . $mailTeacher->ErrorInfo;
 } else {
   echo "Message sent!";
 }
@@ -188,8 +201,8 @@ $mailArtist->Subject    = "PHPMailer Test Subject via smtp (Gmail), basic";
 
 $mailArtist->MsgHTML($bodyArtist);
 
-$address = "tedmunds@iastate.edu";
-$mailArtist->AddAddress($address, "Ted");
+$addressArtist = "tedmunds@iastate.edu";
+$mailArtist->AddAddress($addressArtist, "Ted");
 
 //$mail->AddAttachment("images/phpmailer.gif");      // attachment
 //$mail->AddAttachment("images/phpmailer_mini.gif"); // attachment
@@ -202,6 +215,9 @@ if(!$mailArtist->Send()) {
 //-------------------------------------------------
 
 
+
+    echo "<h3>Thank you for submitting your application to the requested class. You will recieve an email shortly.</h3>
+            <a href=\"http://metro.dev.csgarza.com/education-outreach.php\">Click Here to go back to the list of classes</a>";
 
 
 
